@@ -1,8 +1,10 @@
+package libs;
+
 public class Stack {
 
-	private Stack first = null;
+	private Node first = null;
 	
-	public class Node() {
+	public class Node {
 		String item;
 		Node next;
 	}
@@ -15,9 +17,9 @@ public class Stack {
 	}
 	
 	public String pop() {
-		Node temp = first
-		first = first.nextNode
-		return temp
+		Node oldFirst = first;
+		first = first.next;
+		return oldFirst.item;
 	}
 	
 	public boolean isEmpty() {
@@ -26,8 +28,9 @@ public class Stack {
 	
 	public int size() {
 		int counter = 0;
-		while (first.nextNode != null) {
-		first = first.nextNode;
+		if(isEmpty()) return 0;
+		while (first.next != null) {
+		first = first.next;
 		counter++;
 		}
 		return counter;
