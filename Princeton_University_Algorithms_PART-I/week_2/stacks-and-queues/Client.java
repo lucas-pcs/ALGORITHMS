@@ -1,11 +1,12 @@
-//import Stack.LinkedList.Stack;
-import Stack.Array.Stack;
+import stack.array.ArrayStack;
+import stack.StackFactory;
+import stack.interfaces.Stack;
 
 public class Client {
 	public static void main(String[] args) {
 		System.out.println("main - begin...");
 		
-		testStackLinkedList();
+		testStack();
 		//testStackArray();
 		
 		System.out.println("main - ...end");
@@ -17,7 +18,7 @@ public class Client {
 		
 	}*/
 	
-	public static void testStackLinkedList() {
+	public static void testStack() {
 		// setup
 		
 		// using integers
@@ -30,7 +31,11 @@ public class Client {
 		String first = "first";
 		String second = "second";
 		String third = "third";
-		Stack<String> mStack = new Stack<String>();
+
+		
+		//Stack<String> mStack = new Stack<String>();
+		// 0 -> Array
+		Stack<String> mStack = StackFactory.createStack(0);
 		
 		// test
 		System.out.println("stack isEmpty: " + mStack.isEmpty());

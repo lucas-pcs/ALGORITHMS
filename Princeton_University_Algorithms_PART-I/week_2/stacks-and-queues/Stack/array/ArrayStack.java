@@ -1,22 +1,25 @@
-package Stack.Array;
+package stack.array;
 
 import java.util.EmptyStackException;
+import stack.interfaces.Stack;
 
-public class Stack<Item> {
+public class ArrayStack<Item> implements Stack<Item> {
 	private int capacity = 1;
 	private int N = 0;
 	private Item[] stack;
 
-	public Stack() {
+	public ArrayStack() {
 		stack = (Item[]) new Object[capacity];
 	}
 
+	@Override
 	public void push(Item item) {
 		N++;
 		resizeArray(checkArrayCapacity());
 		stack[N-1] = item;
 	}
 
+	@Override
 	public Item pop() {
 		if(isEmpty()) throw new EmptyStackException();
 		N--;
@@ -56,10 +59,12 @@ public class Stack<Item> {
 		stack = newStack;
 	}
 
+	@Override
 	public boolean isEmpty() {
 		return N == 0;
 	}
 
+	@Override
 	public int size() {
 		return N;
 	}
