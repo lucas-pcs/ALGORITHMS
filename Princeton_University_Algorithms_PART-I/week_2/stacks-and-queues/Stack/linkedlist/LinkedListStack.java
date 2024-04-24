@@ -1,8 +1,9 @@
-package stack.linkedList;
+package stack.linkedlist;
 
 import java.util.EmptyStackException;
+import stack.interfaces.Stack;
 
-public class Stack<Item> {
+public class LinkedListStack<Item> implements Stack<Item> {
 
 	private Node first = null;
 	
@@ -11,13 +12,15 @@ public class Stack<Item> {
 		Node next;
 	}
 	
+	@Override
 	public void push(Item item) {
 		Node newNode = new Node();
 		newNode.item = item;
 		newNode.next = first;
 		first = newNode;
 	}
-	
+
+	@Override
 	public Item pop() {
 		if(isEmpty()) throw new EmptyStackException();
 		Item item = first.item;
@@ -25,10 +28,12 @@ public class Stack<Item> {
 		return item;
 	}
 	
+	@Override
 	public boolean isEmpty() {
 		return first == null;
 	}
 	
+	@Override
 	public int size() {
 		int counter = 0;
 		Node iterator = first;
@@ -41,6 +46,7 @@ public class Stack<Item> {
 		return counter;
 	}
 	
+	@Override
 	public void printStack() {
 		Node iterator = first;
 		System.out.print("printing stack: ");

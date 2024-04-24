@@ -29,36 +29,6 @@ public class ArrayStack<Item> implements Stack<Item> {
 		return item;
 	}
 
-	public arrayFill checkArrayCapacity() {
-		if(capacity == N) return arrayFill.INCREASE;
-
-		else if(capacity/4 >= N) return arrayFill.DECREASE;
-
-		else return arrayFill.KEEP;
-	}
-
-	public enum arrayFill{
-		KEEP,
-		INCREASE,
-		DECREASE;
-	}
-
-	public void resizeArray(arrayFill status) {
-	System.out.println("arrayFill status: " + status + " number of elements: " + N + " array capacity: " + capacity);
-		if(status == arrayFill.KEEP){
-			return;
-		} else if(status == arrayFill.DECREASE) {
-			System.out.println("decreasing array size");
-			capacity = capacity / 2;
-		} else {
-			System.out.println("increasing array size");
-			capacity = capacity * 2;
-		}
-		Item[] newStack = (Item[]) new Object[capacity];
-		for(int i = 0; i < N; i++) newStack[i] = stack[i];
-		stack = newStack;
-	}
-
 	@Override
 	public boolean isEmpty() {
 		return N == 0;
@@ -69,9 +39,38 @@ public class ArrayStack<Item> implements Stack<Item> {
 		return N;
 	}
 
-	// for debugging purposes
+	@Override
 	public void printStack() {
 		System.out.println("Printing stack elements: ");
 		for(int i = N-1; i >= 0; i--) System.out.println(stack[i]);
 	}
+
+	public enum arrayFill{
+		KEEP,
+		INCREASE,
+		DECREASE;
+	}
+
+	public arrayFill checkArrayCapacity() {
+		if(capacity == N) return arrayFill.INCREASE;
+
+		else if(capacity/4 >= N) return arrayFill.DECREASE;
+
+		else return arrayFill.KEEP;
+	}
+
+
+	public void resizeArray(arrayFill status) {
+		if(status == arrayFill.KEEP){
+			return;
+		} else if(status == arrayFill.DECREASE) {
+			capacity = capacity / 2;
+		} else {
+			capacity = capacity * 2;
+		}
+		Item[] newStack = (Item[]) new Object[capacity];
+		for(int i = 0; i < N; i++) newStack[i] = stack[i];
+		stack = newStack;
+	}
+
 }
