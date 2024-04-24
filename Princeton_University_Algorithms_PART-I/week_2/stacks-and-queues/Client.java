@@ -1,37 +1,52 @@
-import Stack.LinkedList.Stack;
+//import Stack.LinkedList.Stack;
+import Stack.Array.Stack;
 
 public class Client {
 	public static void main(String[] args) {
 		System.out.println("main - begin...");
 		
 		testStackLinkedList();
+		//testStackArray();
 		
 		System.out.println("main - ...end");
 	}
+
+	/*public static void testStackArray() {
+		
+		Stack<Integer> mStack = newStack<Integer>();
+		
+	}*/
 	
 	public static void testStackLinkedList() {
-		// test Stack implementation using LinkedList
-		int first = 1;
+		// setup
+		
+		// using integers
+		/*int first = 1;
 		int second = 2;
 		int third = 3;
+		Stack<Integer> mStack = new Stack<Integer>();*/
 		
-		// instanciate stack object
-		Stack<Integer> mStack = new Stack<Integer>();
+		// using Strings
+		String first = "first";
+		String second = "second";
+		String third = "third";
+		Stack<String> mStack = new Stack<String>();
 		
+		// test
 		System.out.println("stack isEmpty: " + mStack.isEmpty());
 		System.out.println("stack size: " + mStack.size());
 		System.out.println("stack push: " + first);
-		mStack.push(Integer.valueOf(first));
+		mStack.push(first);
 		
 		System.out.println("\nstack isEmpty: " + mStack.isEmpty());
 		System.out.println("stack size: " + mStack.size());
 		System.out.println("stack push: " + second);
-		mStack.push(Integer.valueOf(second));
+		mStack.push(second);
 
 		System.out.println("\nstack isEmpty: " + mStack.isEmpty());
 		System.out.println("stack size: " + mStack.size());
 		System.out.println("stack push: " + third);
-		mStack.push(Integer.valueOf(third));
+		mStack.push(third);
 		
 		System.out.println("");
 		mStack.printStack();
