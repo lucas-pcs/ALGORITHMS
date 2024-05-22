@@ -5,7 +5,7 @@ public class Client {
         Integer[] test = {5, 3, 4, 1, 2};
 
         printArray(test);
-        test = (Integer[]) MergeSort.sort(test);
+        MergeSort.sort(test);
         printArray(test);
         System.out.println("\nfinishing ...");
     }
